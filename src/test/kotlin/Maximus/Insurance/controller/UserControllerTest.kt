@@ -1,8 +1,10 @@
 package Maximus.Insurance.controller
 import org.junit.jupiter.api.Assertions.*
 import Maximus.Insurance.model.User
+
 import Maximus.Insurance.repository.UserRepository
 import Maximus.Insurance.service.UserService
+import io.kotlintest.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -15,6 +17,7 @@ import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.http.MediaType
 import org.springframework.test.web.reactive.server.WebTestClient
+import org.springframework.test.web.reactive.server.returnResult
 import reactor.core.publisher.Flux
 
 @WebFluxTest(UserController::class)
@@ -41,11 +44,11 @@ class UserControllerTest {
 
 
         val expectedResult = mapOf(
-                "id" to "11",
-                "firstName" to "Kaustubh",
-                "lastName" to "Bichewar",
+                "user_id" to "11",
+                "first_name" to "Kaustubh",
+                "last_name" to "Bichewar",
                 "email" to "kdb@gmail.com",
-                "phoneNumber" to 9881770366,
+                "phone_num" to 9881770366,
                 "password" to "kdb123",
 
                 )
